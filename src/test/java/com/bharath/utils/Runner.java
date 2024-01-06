@@ -11,10 +11,10 @@ public class Runner {
         System.out.println(lp);
         System.out.println(lp.toJson());
         CustomerAddress ca = new CustomerAddress("1","1","1","1","1","1","1","1");
-        CustomerProductDetails cp = new CustomerProductDetails("1","1","1","1","1",1,1);
+        CustomerProductDetails cp = new CustomerProductDetails("2023-10-30T18:30:00.000Z","1","1","1","2023-10-30T18:30:00.000Z",3,3);
         CustomerDetails c = new CustomerDetails("1","1","1","1","1","1");
         ArrayList<Object> problems = new ArrayList<>();
-        Problem pb = new Problem(1,"Test");
+        Problem pb = new Problem(2,"Test");
         Problem pb1 = new Problem(1,"Test");
         Problem pb2 = new Problem(1,"Test");
         Problem pb3 = new Problem(1,"Test");
@@ -22,7 +22,7 @@ public class Runner {
         problems.add(pb1.getProblem());
         problems.add(pb2.getProblem());
         problems.add(pb3.getProblem());
-        CreateRepairJobPojo cjp = new CreateRepairJobPojo(1,1,1,1,c,ca,cp,problems);
+        CreateRepairJobPojo cjp = new CreateRepairJobPojo(0,2,1,2,c,ca,cp,problems);
         System.out.println(cjp.toJson());
 
     }

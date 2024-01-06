@@ -1,5 +1,6 @@
 package com.bharath.pojo;
 
+import com.bharath.utils.TestUtility;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,8 +17,8 @@ public class CustomerDetails {
     public CustomerDetails(String first_name, String last_name, String mobile_number, String mobile_number_alt, String email_id, String email_id_alt) {
         this.first_name = first_name;
         this.last_name = last_name;
-        this.mobile_number = mobile_number;
-        this.mobile_number_alt = mobile_number_alt;
+        this.mobile_number = (mobile_number.length() == 10) ? mobile_number : TestUtility.generateNumber(10);
+        this.mobile_number_alt = (mobile_number_alt.length() == 10) ? mobile_number_alt : TestUtility.generateNumber(10);
         this.email_id = email_id;
         this.email_id_alt = email_id_alt;
     }
