@@ -1,6 +1,6 @@
-package com.bharath.pojo;
+package pojo.frontdesk;
 
-import com.bharath.utils.TestUtility;
+import utils.TestUtil;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -22,7 +22,7 @@ public class CustomerAddress {
         this.street_name = street_name;
         this.landmark = landmark;
         this.area = area;
-        this.pincode = (pincode.length() == 6) ? pincode : TestUtility.generateNumber(6).toString();
+        this.pincode = (pincode.length() == 6) ? pincode : TestUtil.generateNumber(6).toString();
         this.country = country;
         this.state = state;
     }

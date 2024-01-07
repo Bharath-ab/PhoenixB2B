@@ -1,9 +1,9 @@
-package com.bharath.utils;
+package utils;
 
 import java.util.Random;
 import java.util.UUID;
 
-public class TestUtility {
+public class TestUtil {
     public static String generateString(int lengthOfString) {
         String uuid = UUID.randomUUID().toString();
         return uuid.replace("-","").toUpperCase().substring(0,lengthOfString);

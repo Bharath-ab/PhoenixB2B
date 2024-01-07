@@ -1,7 +1,8 @@
-package com.bharath.utils;
+package utils;
 
-import com.bharath.pojo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import pojo.*;
+import pojo.frontdesk.*;
 
 import java.util.ArrayList;
 
