@@ -1,9 +1,8 @@
-package utils;
+package com.runner;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import pojo.*;
-import pojo.frontdesk.*;
-
+import com.pojo.LoginPojo;
+import com.pojo.frontdesk.*;
 import java.util.ArrayList;
 
 public class Runner {
