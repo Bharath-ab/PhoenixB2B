@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 public class TestUtility {
@@ -35,7 +36,7 @@ public class TestUtility {
     }
 
     public static String generateTokenFor(Role role) throws JsonProcessingException {
-
+        baseURI = "http://139.59.91.96:9000";
         LoginPojo loginRequestPOJO = null;
         if (role == Role.FD) {
             loginRequestPOJO = new LoginPojo("iamfd", "password");
@@ -52,8 +53,7 @@ public class TestUtility {
         }
         Header myHeader = new Header("Content-Type", "application/json");
         String jsonData = convertToJson(loginRequestPOJO);
-        return given().header(myHeader).and().body(jsonData).log().all().when().post("/v1/login").then().log()
-                .all().extract().path("data.token");
+        return given().header(myHeader).and().body(jsonData).log().all().when().post("/v1/login").then().extract().path("data.token");
     }
 
     public static String generateCreateJobData() throws JsonProcessingException {
@@ -90,11 +90,9 @@ public class TestUtility {
         Problem pb = new Problem(2, faker.pokemon().name());
         Problem pb1 = new Problem(1, faker.pokemon().name());
         Problem pb2 = new Problem(1, faker.pokemon().name());
-        Problem pb3 = new Problem(1, faker.pokemon().name());
         problems.add(pb.getProblem());
         problems.add(pb1.getProblem());
         problems.add(pb2.getProblem());
-        problems.add(pb3.getProblem());
         CreateRepairJobPojo createRepairJobPojo = new CreateRepairJobPojo(mstServiceLocationId, mstPlatformId, mstWarrantyStatusId, mstOemId, customerDetails, customerAddress, customerProductDetails, problems);
         return convertToJson(createRepairJobPojo);
     }
