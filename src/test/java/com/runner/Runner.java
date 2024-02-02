@@ -3,6 +3,8 @@ package com.runner;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pojo.LoginPojo;
 import com.pojo.frontdesk.*;
+import com.utils.TestUtility;
+
 import java.util.ArrayList;
 
 public class Runner {
@@ -24,6 +26,8 @@ public class Runner {
         problems.add(pb3.getProblem());
         CreateRepairJobPojo cjp = new CreateRepairJobPojo(0,2,1,2,c,ca,cp,problems);
         System.out.println(cjp.toJson());
+        System.out.println(TestUtility.generateISODate());
+        System.out.println(TestUtility.generateCreateJobData());
 
     }
 }
