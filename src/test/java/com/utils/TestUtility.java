@@ -52,7 +52,7 @@ public class TestUtility {
         }
         Header myHeader = new Header("Content-Type", "application/json");
         String jsonData = convertToJson(loginRequestPOJO);
-        return given().header(myHeader).and().body(jsonData).log().all().when().post("/v1/login").then().extract().path("data.token");
+        return given().header(myHeader).and().body(jsonData).when().post("/v1/login").then().extract().path("data.token");
     }
 
     public static String generateCreateJobData() throws JsonProcessingException {
