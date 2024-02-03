@@ -1,10 +1,6 @@
 package com.pojo.frontdesk;
 
 import com.utils.TestUtility;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CustomerProductDetails {
     private String dop;
@@ -23,12 +19,6 @@ public class CustomerProductDetails {
         this.popurl = popurl;
         this.product_id = product_id;
         this.mst_model_id = mst_model_id;
-    }
-
-    public String toJson() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        return mapper.writeValueAsString(new CustomerProductDetails(dop, serial_number, imei1, imei2, popurl, product_id, mst_model_id));
     }
 
     @Override

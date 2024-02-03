@@ -30,7 +30,6 @@ public class TestUtility {
 
     public static String convertToJson(Object referenceObject) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-//        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         return mapper.writeValueAsString(referenceObject);
     }

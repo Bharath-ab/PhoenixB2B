@@ -1,10 +1,6 @@
 package com.pojo.frontdesk;
 
 import com.utils.TestUtility;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CustomerDetails {
     private String first_name;
@@ -23,11 +19,6 @@ public class CustomerDetails {
         this.email_id_alt = email_id_alt;
     }
 
-    public String toJson() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        return mapper.writeValueAsString(new CustomerDetails(first_name, last_name, mobile_number, mobile_number_alt, email_id, email_id_alt));
-    }
 
     @Override
     public String toString() {

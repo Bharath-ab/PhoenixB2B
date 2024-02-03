@@ -2,6 +2,7 @@ package com.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pojo.LoginPojo;
+import com.utils.TestUtility;
 import io.restassured.http.Header;
 import org.testng.annotations.Test;
 
@@ -16,7 +17,7 @@ public class LoginApiTest {
         baseURI = "http://139.59.91.96:9000";
         Header myHeader = new Header("Content-Type", "application/json");
         lp = new LoginPojo("iamfd", "password");
-        String apiBody = lp.toJson();
+        String apiBody = TestUtility.convertToJson(lp);
         String token = given()
                 .header(myHeader)
                 .and()
