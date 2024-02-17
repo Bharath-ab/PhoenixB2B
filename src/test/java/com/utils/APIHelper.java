@@ -16,27 +16,30 @@ public class APIHelper {
         baseURI = "http://139.59.91.96:9000";
         ArrayList<Header> apiHeader = new ArrayList<>(Arrays.asList(header));
         Headers myHeaders = new Headers(apiHeader);
-        System.out.println(myHeaders);
         if (apiAction == HTTPVerb.GET) {
             response = given()
                     .headers(myHeaders)
                     .and()
-                    .log().all()
+//                    .log().all()
                     .when()
                     .get(endPoint);
-        } else if (apiAction == HTTPVerb.POST) {
+        }
+        else if (apiAction == HTTPVerb.POST) {
             response = given()
                     .headers(myHeaders)
                     .and()
                     .body(apiBody)
-                    .log().all()
+//                    .log().all()
                     .when()
                     .post(endPoint);
-        } else if (apiAction == HTTPVerb.DELETE) {
-
-        } else if (apiAction == HTTPVerb.PUT) {
-
-        } else {
+        }
+        else if (apiAction == HTTPVerb.DELETE) {
+            System.out.println("Implementation Body");
+        }
+        else if (apiAction == HTTPVerb.PUT) {
+            System.out.println("Implementation Body");
+        }
+        else {
             System.out.println("Please Use Valid API Action GET,POST,DELETE,PUT");
         }
         return response;
