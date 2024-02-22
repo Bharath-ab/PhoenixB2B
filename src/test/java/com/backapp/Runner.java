@@ -6,7 +6,7 @@ public class Runner {
         System.out.println(bk);
         Bank bk2 = new MumbaiBranch("Varma",2000,"aadhar");
         System.out.println(bk2);
-        Bank bk3 = new MumbaiBranch("Varma",2000,"pan");
+        Bank bk3 = new MumbaiBranch("Varma",2000,"aadhar");
         System.out.println(bk3);
 
     }
