@@ -2,7 +2,7 @@ package com.api.tests;
 
 import com.pojo.LoginPojo;
 import com.utils.APIHelper;
-import com.utils.HttpVerb;
+import com.utils.HTTPVerb;
 import io.restassured.http.Header;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
@@ -21,7 +21,7 @@ public class LoginAPITest {
         helper = new APIHelper();
         response = helper
                 .makeRequest(
-                        HttpVerb.POST, "/v1/login",
+                        HTTPVerb.POST, "/v1/login",
                         new Header("Content-Type", "application/json"),
                         new LoginPojo("iamfd", "password")
                 );

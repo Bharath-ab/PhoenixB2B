@@ -16,6 +16,9 @@
         <restassured.version>5.4.0</restassured.version>
         <junit.version>5.10.2</junit.version>
         <cucumber.version>7.16.1</cucumber.version>
+        <TestNg.version>7.9.0</TestNg.version>
+        <extentReport.version>5.1.1</extentReport.version>
+        <faker.version>1.0.2</faker.version>
     </properties>
 
     <dependencyManagement>
@@ -87,5 +90,25 @@
             <artifactId>junit-vintage-engine</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--Test Ng Dependencies        -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${TestNg.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentReport.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${faker.version}</version>
+        </dependency>
+
+
+
     </dependencies>
 </project>

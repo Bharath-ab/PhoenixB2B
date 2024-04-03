@@ -13,7 +13,7 @@ public class APIHelper {
     List<Header> requestHeader = new ArrayList<>();
     IBody body;
 
-    public Response makeRequest(HttpVerb httpVerb, String endpoint, Object... headerAndBody) {
+    public Response makeRequest(HTTPVerb httpVerb, String endpoint, Object... headerAndBody) {
         Response response = null;
         for (Object d : headerAndBody) {
             if (d instanceof Header) {
@@ -23,13 +23,13 @@ public class APIHelper {
             }
         }
         baseURI = getBaseURL();
-        if (HttpVerb.GET == httpVerb) {
+        if (HTTPVerb.GET == httpVerb) {
             response = given().headers(new Headers(requestHeader)).body(body.toJson()).when().get(endpoint);
-        } else if (HttpVerb.POST == httpVerb) {
+        } else if (HTTPVerb.POST == httpVerb) {
             response = given().headers(new Headers(requestHeader)).body(body.toJson()).when().post(endpoint);
-        } else if (HttpVerb.PUT == httpVerb) {
+        } else if (HTTPVerb.PUT == httpVerb) {
             response = given().headers(new Headers(requestHeader)).body(body.toJson()).when().put(endpoint);
-        } else if (HttpVerb.DELETE == httpVerb) {
+        } else if (HTTPVerb.DELETE == httpVerb) {
             response = given().headers(new Headers(requestHeader)).body(body.toJson()).when().delete(endpoint);
         }
         return response;
