@@ -1,13 +1,14 @@
-package com.pojo.frontdesk;
+package com.pojo;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.utils.IBody;
 
 import java.util.ArrayList;
 
-public class CreateRepairJobPojo {
+public class CreateRepairJobPojo implements IBody {
     private int mst_service_location_id;
     private int mst_platform_id;
     private int mst_warrenty_status_id;
@@ -28,10 +29,16 @@ public class CreateRepairJobPojo {
         this.problems = problems;
     }
 
-    public String toJson() throws JsonProcessingException {
+    public String toJson(){
+        String bodyAsJSON;
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        return mapper.writeValueAsString(new CreateRepairJobPojo(mst_service_location_id, mst_platform_id, mst_warrenty_status_id, mst_oem_id, customer, customer_address, customer_product, problems));
+        try{
+            return bodyAsJSON = mapper.writeValueAsString(new CreateRepairJobPojo(mst_service_location_id, mst_platform_id, mst_warrenty_status_id, mst_oem_id, customer, customer_address, customer_product, problems));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

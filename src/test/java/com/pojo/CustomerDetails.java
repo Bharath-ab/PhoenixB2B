@@ -1,4 +1,4 @@
-package com.pojo.frontdesk;
+package com.pojo;
 
 import com.utils.TestUtil;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

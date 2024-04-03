@@ -1,4 +1,4 @@
-package com.pojo.frontdesk;
+package com.pojo;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

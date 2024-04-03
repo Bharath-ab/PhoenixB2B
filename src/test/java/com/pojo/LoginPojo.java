@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.utils.IBody;
 
-public class LoginPojo {
+public class LoginPojo implements IBody {
     private String username;
     private String password;
 
@@ -14,17 +15,22 @@ public class LoginPojo {
         this.password = password;
     }
 
-    public String toJson() throws JsonProcessingException {
+    public String toJson(){
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        return mapper.writeValueAsString(new LoginPojo(username, password));
+        try {
+            return mapper.writeValueAsString(new LoginPojo(username, password));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "LoginPojo{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "LoginPojo{" +
+//                "username='" + username + '\'' +
+//                ", password='" + password + '\'' +
+//                '}';
+//    }
 }
