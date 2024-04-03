@@ -1,10 +1,5 @@
 package com.pojo;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.HashMap;
 
 public class Problem {
@@ -22,12 +17,6 @@ public class Problem {
 
     public HashMap<String, Object> getProblem() {
         return problem;
-    }
-
-    public String toJson() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        return mapper.writeValueAsString(new Problem(id,remark));
     }
 
     @Override

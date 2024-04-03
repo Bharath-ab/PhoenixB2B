@@ -1,10 +1,6 @@
 package com.pojo;
 
-import com.utils.TestUtil;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.utils.TestUtility;
 
 public class CustomerAddress {
     private String flat_number;
@@ -22,15 +18,9 @@ public class CustomerAddress {
         this.street_name = street_name;
         this.landmark = landmark;
         this.area = area;
-        this.pincode = (pincode.length() == 6) ? pincode : TestUtil.generateNumber(6).toString();
+        this.pincode = (pincode.length() == 6) ? pincode : TestUtility.generateNumber(6).toString();
         this.country = country;
         this.state = state;
-    }
-
-    public String toJson() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        return mapper.writeValueAsString(new CustomerAddress(flat_number, apartment_name, street_name, landmark, area, pincode, country, state));
     }
 
     @Override
