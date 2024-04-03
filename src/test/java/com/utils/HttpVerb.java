@@ -1,5 +1,5 @@
 package com.utils;
 
-public enum HttpVerb {
-    GET,POST,PUT,DELETE;
+public enum HTTPVerb {
+    GET,PUT,POST,DELETE
 }
