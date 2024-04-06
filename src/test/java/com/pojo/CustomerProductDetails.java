@@ -1,6 +1,6 @@
 package com.pojo;
 
-import com.utils.TestUtility;
+import com.utils.TestUtil;
 
 public class CustomerProductDetails {
     private String dop;
@@ -14,8 +14,8 @@ public class CustomerProductDetails {
     public CustomerProductDetails(String dop, String serial_number, String imei1, String imei2, String popurl, int product_id, int mst_model_id) {
         this.dop = dop;
         this.serial_number = serial_number;
-        this.imei1 = (imei1.length() == 14) ? imei1 : TestUtility.generateString(14);
-        this.imei2 = (imei2.length() == 14) ? imei2 : TestUtility.generateString(14);
+        this.imei1 = (imei1.length() == 14) ? imei1 : TestUtil.generateString(14);
+        this.imei2 = (imei2.length() == 14) ? imei2 : TestUtil.generateString(14);
         this.popurl = popurl;
         this.product_id = product_id;
         this.mst_model_id = mst_model_id;

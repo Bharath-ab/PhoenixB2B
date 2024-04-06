@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.*;
 public class Login_SD {
     Response response;
     RequestSpecification request;
-
+    String apiToken;
 
     @Given("the baseurl of the backend app is {string}")
     public void theBaseurlOfTheBackendAppIs(String url) {
@@ -29,7 +29,7 @@ public class Login_SD {
     @And("the user credentials are {string} {string}")
     public void theUserCredentialsAre(String userName, String password) {
         LoginPojo loginPojo = new LoginPojo(userName, password);
-        request.body(loginPojo.toJson());
+        request.body(loginPojo);
 
     }
 
@@ -57,10 +57,15 @@ public class Login_SD {
     @And("a token should be generated")
     public void aTokenShouldBeGenerated() {
         response.then().assertThat().body("data.token", Matchers.notNullValue());
+        apiToken = response.then().extract().path("data.token");
+        System.out.println(apiToken);
+
     }
 
     @And("the response body should be a json body")
     public void theResponseBodyShouldBeAJsonBody() {
         response.then().assertThat().headers("content-type", "application/json; charset=utf-8");
     }
+
+
 }

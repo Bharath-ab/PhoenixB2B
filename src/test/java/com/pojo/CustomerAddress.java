@@ -1,6 +1,6 @@
 package com.pojo;
 
-import com.utils.TestUtility;
+import com.utils.TestUtil;
 
 public class CustomerAddress {
     private String flat_number;
@@ -18,7 +18,7 @@ public class CustomerAddress {
         this.street_name = street_name;
         this.landmark = landmark;
         this.area = area;
-        this.pincode = (pincode.length() == 6) ? pincode : TestUtility.generateNumber(6).toString();
+        this.pincode = (pincode.length() == 6) ? pincode : TestUtil.generateNumber(6).toString();
         this.country = country;
         this.state = state;
     }
