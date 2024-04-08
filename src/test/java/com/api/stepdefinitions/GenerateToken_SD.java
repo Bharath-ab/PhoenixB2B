@@ -12,7 +12,7 @@ import org.hamcrest.Matchers;
 import org.testng.Assert;
 
 
-public class GenerateToken_SD extends TestUtil{
+public class GenerateToken_SD extends TestUtil {
 
     APIHelper helper;
     Response response;
@@ -32,26 +32,24 @@ public class GenerateToken_SD extends TestUtil{
     public void userGenerateLoginToken() {
 
         apiToken = response
-                    .then()
-                    .statusCode(200)
-                    .and()
-                    .body("message", Matchers.equalTo("Success"))
-                    .log().all()
-                    .extract().path("data.token");
+                .then()
+                .statusCode(200)
+                .and()
+                .body("message", Matchers.equalTo("Success"))
+                .extract().path("data.token");
     }
 
 
     @Then("User get master Data")
     public void userGetMasterData() {
         helper = new APIHelper();
-        response =helper
+        response = helper
                 .makeRequest(
                         HTTPVerb.POST, "/v1/master",
                         new Header("Content-Type", "application/json"),
-                        new Header("Authorization",apiToken)
+                        new Header("Authorization", apiToken)
                 );
-        Assert.assertEquals(200,response.getStatusCode());
+        Assert.assertEquals(200, response.getStatusCode());
         TestUtil.masterAPIResponse = response.asString();
-        System.out.println(TestUtil.masterAPIResponse);
     }
 }

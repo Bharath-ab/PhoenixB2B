@@ -51,12 +51,12 @@ public class TestUtil {
         return String.valueOf(nextLong).substring(0, length);
     }
 
-    private void parseObject(JSONObject json, String key,ArrayList<Object> storeKeys) {
+    private static void parseObject(JSONObject json, String key,ArrayList<Object> storeKeys) {
         storeKeys.add(json.get(key));
 
     }
 
-    private  ArrayList<Object> getKeys(JSONObject json, String key,ArrayList<Object> storeKeys) {
+    private static ArrayList<Object> getKeys(JSONObject json, String key,ArrayList<Object> storeKeys) {
         boolean exists = json.has(key);
         Iterator<?> keys;
         String nextKeys;
@@ -99,7 +99,7 @@ public class TestUtil {
         return storeKeys;
     }
 
-    public ArrayList<Object> iterateOverJSONArray(String jsonASString, String key) {
+    public static ArrayList<Object> iterateOverJSONArray(String jsonASString, String key) {
         ArrayList<Object> parsedKeys = new ArrayList<>();
         JSONObject convertedJSON;
 
@@ -123,6 +123,13 @@ public class TestUtil {
                 .map(object -> Objects.toString(object, null))
                 .toList();
         return strings;
+    }
+
+    public static List<String> deviceDependencyMap(String apiResponse,String jsonArray,String keyToExtract){
+        ArrayList<Object>mstOEMList = iterateOverJSONArray(apiResponse,jsonArray);
+        List<String> jsonObjectArrayToListString = convertObjectArrayToList(mstOEMList);
+        ArrayList<Object>deviceName = iterateOverJSONArray(jsonObjectArrayToListString.toString(),keyToExtract);
+        return convertObjectArrayToList(deviceName);
     }
 
 }

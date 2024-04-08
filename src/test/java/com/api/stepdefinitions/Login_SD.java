@@ -1,6 +1,7 @@
 package com.api.stepdefinitions;
 
 import com.pojo.LoginPojo;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,6 +16,11 @@ public class Login_SD {
     Response response;
     RequestSpecification request;
     String apiToken;
+
+    @DataTableType(replaceWithEmptyString = "[blank]")
+    public String stringType(String cell) {
+        return cell;
+    }
 
     @Given("the baseurl of the backend app is {string}")
     public void theBaseurlOfTheBackendAppIs(String url) {
@@ -41,7 +47,7 @@ public class Login_SD {
 
     @Then("the status code needs to be {int}")
     public void theStatusCodeNeedsToBe(int statusCode) {
-        response.then().log().all().assertThat().statusCode(statusCode);
+        response.then().assertThat().statusCode(statusCode);
     }
 
     @And("the response time should be less {int} ms")
@@ -58,7 +64,6 @@ public class Login_SD {
     public void aTokenShouldBeGenerated() {
         response.then().assertThat().body("data.token", Matchers.notNullValue());
         apiToken = response.then().extract().path("data.token");
-        System.out.println(apiToken);
 
     }
 

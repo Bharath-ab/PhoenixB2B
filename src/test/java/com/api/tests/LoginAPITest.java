@@ -30,7 +30,6 @@ public class LoginAPITest {
                 .statusCode(200)
                 .and()
                 .body("message", Matchers.equalTo("Success"))
-                .log().all()
                 .extract().path("data.token");
     }
 

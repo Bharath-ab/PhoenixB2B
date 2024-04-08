@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bharath</groupId>
-    <artifactId>PhoenixB2B-July2023</artifactId>
+    <artifactId>PhoenixB2B</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -19,6 +19,8 @@
         <TestNg.version>7.9.0</TestNg.version>
         <extentReport.version>5.1.1</extentReport.version>
         <faker.version>1.0.2</faker.version>
+        <apachecollections.version>4.5.0-M1</apachecollections.version>
+        <junit-platform.version>1.10.2</junit-platform.version>
     </properties>
 
     <dependencyManagement>
@@ -26,7 +28,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>${junit.version}</version>
+                <version>5.10.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -72,6 +74,7 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
         <!--  Junit 5 Dependencies -->
@@ -88,6 +91,12 @@
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit-platform.version}</version>
             <scope>test</scope>
         </dependency>
         <!--Test Ng Dependencies        -->
@@ -111,6 +120,12 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20240303</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${apachecollections.version}</version>
         </dependency>
 
 
