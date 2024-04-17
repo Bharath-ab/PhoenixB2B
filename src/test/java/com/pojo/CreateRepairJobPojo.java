@@ -29,16 +29,17 @@ public class CreateRepairJobPojo implements IBody {
         this.problems = problems;
     }
 
-    public String toJson(){
-        String bodyAsJSON;
+    public String toJson() {
+        String bodyAsJSON = null;
         ObjectMapper mapper = new ObjectMapper();
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-        try{
-            return bodyAsJSON = mapper.writeValueAsString(new CreateRepairJobPojo(mst_service_location_id, mst_platform_id, mst_warrenty_status_id, mst_oem_id, customer, customer_address, customer_product, problems));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            return null;
+        try {
+            bodyAsJSON = mapper.writeValueAsString(new CreateRepairJobPojo(mst_service_location_id, mst_platform_id, mst_warrenty_status_id, mst_oem_id, customer, customer_address, customer_product, problems));
         }
+        catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return bodyAsJSON;
     }
 
     @Override

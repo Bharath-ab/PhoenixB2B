@@ -5,11 +5,12 @@ Feature: Create Repair Job in Phoenix App
     Given User Logged in with userName "iamfd" and password "password"
     Then User generate Login Token
     Then User get master Data
-@e2e
+
+  @e2e
   Scenario: Create In-Warranty WorkFlow
     Given User fills device details as below
       | Device Details        | Value       | Mandatory Field ? |
-      | Manufacturer Name     | apple       | true              |
+      | Manufacturer Name     | pineapple       | true              |
       | Product Name          | ORANGE-Gold | true              |
       | Model Name            | IPhone 11   | true              |
       | IMEI 1                | 1121221     | true              |

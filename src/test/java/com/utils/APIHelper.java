@@ -47,7 +47,6 @@ public class APIHelper {
                 response = given().headers(new Headers(requestHeader)).body(body.toJson()).when().delete(endpoint);
             }
         }
-
         return response;
     }
 
